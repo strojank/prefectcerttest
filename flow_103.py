@@ -1,4 +1,4 @@
-from prefect import flow, task
+from prefect import flow, task, get_run_logger
 from prefect.tasks import task_input_hash
 from datetime import timedelta
 import pandas as pd
@@ -18,9 +18,8 @@ def get_data():
     url = f'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey={KEY}'
     r = requests.get(url)
     data = r.json()
-    #print(data)
-    #df = pd.DataFrame.from_dict(data)
-    #print(df.head)
+    logger = get_run_logger()
+    logger.info("LOGGING is ON")
     return data
 
 
