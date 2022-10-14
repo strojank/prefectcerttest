@@ -1,0 +1,40 @@
+###
+### A complete description of a Prefect Deployment for flow 'weather-flow'
+###
+name: sched
+description: null
+version: 8353495f9332d6b07fc8665dd8644fb4
+# The work queue that will handle this deployment's runs
+work_queue_name: default
+tags: []
+parameters: {}
+schedule:
+  interval: 40.0
+  anchor_date: '2022-10-13T20:21:48.191413+00:00'
+  timezone: UTC
+infra_overrides: {}
+infrastructure:
+  type: process
+  env: {}
+  labels: {}
+  name: null
+  command:
+  - python
+  - -m
+  - prefect.engine
+  stream_output: true
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: weather-flow
+manifest_path: null
+storage: null
+path: /Users/klemen/Documents/prefect_training
+entrypoint: flow_101.py:weather_flow
+parameter_openapi_schema:
+  title: Parameters
+  type: object
+  properties: {}
+  required: null
+  definitions: null
